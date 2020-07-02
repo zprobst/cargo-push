@@ -1,0 +1,10 @@
+[package]
+name = "cargo-push"
+version = "0.1.0"
+authors = ["Zach Probst <zprobst@resilientvitality.com>"]
+edition = "2018"
+
+[dependencies]
+regex = "1.3"
+lazy_static = "1.4"
+structopt = "0.3.15"
