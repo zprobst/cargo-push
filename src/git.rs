@@ -14,6 +14,7 @@ pub fn git_commit(message: &str) {
         .expect("Something went wrong trying to commit the new change.");
 }
 
+/// Pushes to the current branch.
 pub fn git_push() {
     let branch_result = Command::new("git")
         .args(&["rev-parse", "--abbrev-ref", "HEAD"])
@@ -25,7 +26,7 @@ pub fn git_push() {
     println!("Discovered Working on branch: {}", branch);
 
     Command::new("git")
-        .args(&["push", "--tags", "-u", "origin", "main"])
+        .args(&["push", "--tags", "-u", "origin", branch])
         .status()
         .expect("Something went wrong trying to push the branch.");
 }
