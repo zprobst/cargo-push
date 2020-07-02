@@ -25,7 +25,7 @@ pub fn git_push() {
     println!("Discovered Working on branch: {}", branch);
 
     Command::new("git")
-        .args(&["push", "--tags", "-u", "origin", branch])
+        .args(&["push", "--tags", "-u", "origin", "main"])
         .status()
         .expect("Something went wrong trying to push the branch.");
 }
