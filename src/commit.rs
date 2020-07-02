@@ -97,6 +97,7 @@ pub fn perform_commit(
     }
     println!("Using Commit Message: '{}'", final_commit_message);
 
+    // Commmit and push
     git_check();
     git_commit(&final_commit_message);
     git_push();
