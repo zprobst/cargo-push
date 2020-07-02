@@ -22,6 +22,7 @@ pub fn git_push() {
         .stdout;
     let branch = std::str::from_utf8(&branch_result)
         .expect("git sent a non-utf-8 byte stream as standard out");
+    println!("Discovered Working on branch: {}", branch);
 
     Command::new("git")
         .args(&["push", "--tags", "-u", "origin", branch])
