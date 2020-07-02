@@ -2,6 +2,7 @@
 ///
 /// cargo push commit  -m "hello world" -t feature --story SVC-1111
 mod commit;
+mod git;
 use commit::{perform_commit, ConventionalCommitType};
 
 #[macro_use]
