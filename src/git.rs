@@ -1,7 +1,7 @@
 use std::process::Command;
 
 pub fn git_check() {
-    let output = Command::new("git")
+    Command::new("git")
         .args(&["status", "--porcelain"])
         .output()
         .expect("This tool requires git. Please install git and try again.");
@@ -16,7 +16,7 @@ pub fn git_commit(message: &str) {
 
 pub fn git_push() {
     let branch_result = Command::new("git")
-        .args(&["branch"])
+        .args(&["rev-parse", "--abbrev-ref", "HEAD"])
         .output()
         .expect("Something went wrong trying to push the branch.")
         .stdout;
