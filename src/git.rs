@@ -22,11 +22,13 @@ pub fn git_push() {
         .expect("Something went wrong trying to push the branch.")
         .stdout;
     let branch = std::str::from_utf8(&branch_result)
-        .expect("git sent a non-utf-8 byte stream as standard out");
+        .expect("git sent a non-utf-8 byte stream as standard out")
+        .trim()
+        .to_owned();
     println!("Discovered Working on branch: {}", branch);
 
     Command::new("git")
-        .args(&["push", "--tags", "-u", "origin", branch])
+        .args(&["push", "--tags", "-u", "origin", &branch])
         .status()
         .expect("Something went wrong trying to push the branch.");
 }
